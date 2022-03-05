@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-//import api from "../services/api";
+import api from "../services/api";
 import '../css/menu.scss'
 export function Menu() {
-    const [userValue,setUserValue]=useState(null)
+    const [inputValue,setInputValue]=useState(null)
 
     const getInputValue = (event)=>{
-        setUserValue(event.target.value)
+        setInputValue(event.target.value)
 
         console.log(event.target.value)
 
@@ -15,16 +15,19 @@ export function Menu() {
 
     const [user, setUser] = useState();
     useEffect(() => {
-            fetch(`https://api.github.com/users/${userValue}`)
-            .then((response) => response.json())
-            .then(data=>setUserValue(data))
-    }, [userValue]);
+        api
+        .get("/users/DaviNasciment")
+        .then((response) => setUser(response.data))
+        .catch((err) => {
+          console.error("ops! ocorreu um erro" + err);
+        });
+    }, []);
 
     return (
         <div id="box_menu">
             <div id="titulo-top">
                 <h2>
-                    GitHub Explorer {userValue}
+                    GitHub Explorer {inputValue}
                 </h2>
             </div>
             <div id="container">
