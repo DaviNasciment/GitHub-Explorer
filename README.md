@@ -1,4 +1,6 @@
 # GitHub Explorer React
+> Aplicação em React
+Ambiente de Produção
   
 ## Tecnologia
 
