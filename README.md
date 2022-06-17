@@ -18,10 +18,7 @@ Instalar
  
 ## Instalações
 Instalar o node_modules.
->    yarn
->    
-buildar a pagina dist.
->    yarn build
+>    yarn install
 
 ## Iniciando 
 Starta o servidor
